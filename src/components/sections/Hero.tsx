@@ -57,7 +57,7 @@ export function Hero() {
             variants={wordReveal}
             className="font-display leading-none text-white select-none"
             style={{
-              fontSize: "clamp(64px, 18vw, 260px)",
+              fontSize: "clamp(82px, 18vw, 260px)",
               letterSpacing: "-0.02em",
             }}
           >
@@ -83,7 +83,7 @@ export function Hero() {
         {/* Tagline */}
         <motion.p
           variants={fadeIn}
-          className="font-mono text-[10px] text-text-muted tracking-[0.3em] uppercase mt-5"
+          className="font-mono text-[13px] md:text-[10px] text-text-muted tracking-[0.3em] uppercase mt-5"
         >
           Product Design · AI Systems · Design Engineering
         </motion.p>
@@ -95,7 +95,7 @@ export function Hero() {
           target="_blank"
           rel="noreferrer"
           aria-label="View Suryaa's resume"
-          className="mt-10 inline-flex items-center gap-3 border border-accent px-7 py-3 font-mono text-[10px] tracking-widest uppercase text-accent hover:bg-accent hover:text-black transition-all duration-300 group"
+          className="mt-10 inline-flex items-center gap-3 border border-accent px-8 py-3.5 md:px-7 md:py-3 font-mono text-[13px] md:text-[10px] tracking-widest uppercase text-accent hover:bg-accent hover:text-black transition-all duration-300 group"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >

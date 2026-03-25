@@ -82,7 +82,7 @@ export function Experience() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="pb-12 mb-12 md:pb-24 md:mb-24 border-b border-border last:border-0 last:mb-0 last:pb-0"
+              className="pb-12 mb-12 md:pb-16 md:mb-16 border-b border-border last:border-0 last:mb-0 last:pb-0"
             >
               {/* Company header */}
               <motion.div

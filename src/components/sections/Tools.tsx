@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { SectionLabel } from "@/components/ui/SectionLabel"
 import { staggerContainer, fadeUp } from "@/lib/motion"
@@ -50,19 +51,7 @@ function CursorIcon() {
 
 function ClaudeIcon() {
   return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-      {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => (
-        <rect
-          key={i}
-          x="16.5" y="4"
-          width="3" height="12"
-          rx="1.5"
-          fill="#FF6B00"
-          opacity={0.4 + (i % 4) * 0.2}
-          transform={`rotate(${deg} 18 18)`}
-        />
-      ))}
-    </svg>
+    <Image src="/images/claude-color.webp" alt="Claude" width={36} height={36} />
   )
 }
 
@@ -154,11 +143,7 @@ function MiroIcon() {
 
 function PostmanIcon() {
   return (
-    <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="24" r="22" fill="#FF6C37"/>
-      <path d="M32 16l-8 8m0 0-8-8m8 8v12" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="24" cy="18" r="4" fill="#fff"/>
-    </svg>
+    <Image src="/images/postman.webp" alt="Postman" width={36} height={36} />
   )
 }
 
