@@ -14,7 +14,7 @@ const skills = [
   "AI WORKFLOWS",
   "DESIGN ENGINEERING",
   "VIBE CODE",
-  "MOTION DESIGN",
+  "STORYTELLING",
 ]
 
 export function Skills() {

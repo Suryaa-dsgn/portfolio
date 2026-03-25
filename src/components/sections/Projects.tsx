@@ -13,8 +13,15 @@ export function Projects() {
     () => {
       const cards = gsap.utils.toArray<HTMLElement>(".project-card")
 
+      // Promote each card to its own GPU compositing layer
+      cards.forEach((card) => {
+        card.style.willChange = "transform"
+      })
+
       cards.forEach((card, i) => {
-        // Pin each card to the top as it arrives
+        const targetScale = 1 - (cards.length - i - 1) * 0.035
+
+        // Single ScrollTrigger per card — pin + scale in one pass
         ScrollTrigger.create({
           trigger: card,
           start: "top top+=88px",
@@ -22,17 +29,13 @@ export function Projects() {
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
-        })
-
-        // Scale down card as subsequent cards stack on top
-        gsap.to(card, {
-          scale: 1 - (cards.length - i - 1) * 0.035,
-          scrollTrigger: {
-            trigger: card,
-            start: "top top+=88px",
-            endTrigger: sectionRef.current!,
-            end: "bottom bottom",
-            scrub: true,
+          anticipatePin: 1,           // prevents the layout jump when pinning kicks in
+          scrub: 1.5,                 // smooth lag (seconds) eliminates per-frame jank
+          onUpdate: (self) => {
+            // Scale the card smoothly as scroll progresses
+            gsap.set(card, {
+              scale: 1 - (1 - targetScale) * self.progress,
+            })
           },
         })
       })
@@ -77,7 +80,7 @@ export function Projects() {
       {/* Stacking cards */}
       <div className="flex flex-col gap-0 px-4">
         {projects.map((project, i) => (
-          <ProjectCard key={project.id} {...project} index={i} />
+          <ProjectCard key={project.id} {...project} screens={project.screens} index={i} />
         ))}
       </div>
 

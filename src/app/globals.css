@@ -42,12 +42,15 @@
 }
 
 /* ── Base Reset ── */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Must be inside @layer base so Tailwind utility classes (in @layer utilities) can override it */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html {
