@@ -17,13 +17,14 @@ export function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-5">
-        {/* Logo / Monogram */}
-        <Link
-          href="/"
-          className="font-display text-2xl text-white tracking-widest hover:text-accent transition-colors duration-200"
+        {/* Logo / Monogram — click to scroll back to top */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="font-display text-2xl text-white tracking-widest hover:text-accent transition-colors duration-200 cursor-pointer"
+          aria-label="Scroll to top"
         >
           SK
-        </Link>
+        </button>
 
         {/* Nav Links — desktop */}
         <ul className="hidden md:flex items-center gap-8" role="list">
