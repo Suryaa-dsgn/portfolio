@@ -11,6 +11,7 @@ interface ProjectCardProps {
   description: string
   image?: string
   screens?: string[]
+  href?: string
   index: number
 }
 
@@ -124,12 +125,16 @@ export function ProjectCard({
   description,
   image,
   screens,
+  href,
   index,
 }: ProjectCardProps) {
   return (
-    <motion.div
-      className="project-card w-full bg-surface rounded-2xl border border-border overflow-hidden flex flex-col md:flex-row min-h-[480px]"
-      style={{ zIndex: index + 1, transformOrigin: "top center" }}
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-card w-full bg-surface rounded-2xl border border-border overflow-hidden flex flex-col md:flex-row min-h-[480px] cursor-pointer"
+      style={{ zIndex: index + 1, transformOrigin: "top center", display: "flex" }}
       whileHover={{ borderColor: "rgba(255,107,0,0.4)" }}
       transition={{ duration: 0.2 }}
     >
@@ -206,6 +211,6 @@ export function ProjectCard({
       >
         <ImagePanel screens={screens} image={image} name={name} />
       </div>
-    </motion.div>
+    </motion.a>
   )
 }

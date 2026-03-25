@@ -1,18 +1,5 @@
 export const projects = [
   {
-    id: 1,
-    name: "WHATSFLOW",
-    category: "AI WORKFLOW BUILDER",
-    year: "2025",
-    tags: ["React", "Node.js", "AI Workflows", "WhatsApp Business API"],
-    description:
-      "Designed the end-to-end user journey for an AI-powered WhatsApp flow builder. Reduced manual setup time for businesses by 80% through intuitive information architecture.",
-    image: "/images/whatsflow-mock.png",
-    screens: ["/images/whatsflow-mock.png"],
-    imgW: 1729,
-    imgH: 974,
-  },
-  {
     id: 2,
     name: "AGENT UI FRAMEWORK",
     category: "AI PRODUCT CASE STUDY",
@@ -24,6 +11,7 @@ export const projects = [
     screens: ["/images/agent-mock.png"],
     imgW: 1728,
     imgH: 972,
+    href: "https://drive.google.com/file/d/1zRfUfdLIDu7VKGsWjI32QUxoM53VKP9t/view?usp=sharing",
   },
   {
     id: 3,
@@ -37,6 +25,7 @@ export const projects = [
     screens: ["/images/memoryos-mock.png"],
     imgW: 1728,
     imgH: 904,
+    href: "https://mnemis.netlify.app/",
   },
   {
     id: 4,
@@ -50,5 +39,6 @@ export const projects = [
     screens: ["/images/dxdgtl-mock.png"],
     imgW: 1728,
     imgH: 1296,
+    href: "https://quickflows-case-study.vercel.app/",
   },
 ]

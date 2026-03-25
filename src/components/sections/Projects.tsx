@@ -80,7 +80,7 @@ export function Projects() {
       {/* Stacking cards */}
       <div className="flex flex-col gap-0 px-4">
         {projects.map((project, i) => (
-          <ProjectCard key={project.id} {...project} screens={project.screens} index={i} />
+          <ProjectCard key={project.id} {...project} screens={project.screens} href={project.href} index={i} />
         ))}
       </div>
 

@@ -80,6 +80,23 @@ export function Hero() {
         >
           Product Design · AI Systems · Design Engineering
         </motion.p>
+
+        {/* Resume CTA */}
+        <motion.a
+          variants={fadeIn}
+          href="https://drive.google.com/file/d/1M8sgWVXTullFKFbYCedxMpmmltve4fRF/view?usp=sharing"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="View Suryaa's resume"
+          className="mt-10 inline-flex items-center gap-3 border border-accent px-7 py-3 font-mono text-[10px] tracking-widest uppercase text-accent hover:bg-accent hover:text-black transition-all duration-300 group"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <span>View Resume</span>
+          <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            ↗
+          </span>
+        </motion.a>
       </motion.div>
 
       {/* ── Bottom-right forte label ── */}
