@@ -571,10 +571,16 @@ export function Footer() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto py-32"
+            className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto py-16 md:py-32"
           >
             <motion.div variants={scaleIn} className="mb-8">
-              <OrangeStar size={44} />
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+                style={{ display: "block" }}
+              >
+                <OrangeStar size={44} />
+              </motion.span>
             </motion.div>
 
             <motion.h2

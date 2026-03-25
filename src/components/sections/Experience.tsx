@@ -34,6 +34,8 @@ export function Experience() {
 
   useGSAP(
     () => {
+      // Label is hidden on mobile — skip pin to avoid phantom scroll hold
+      if (typeof window !== "undefined" && window.innerWidth < 768) return
       ScrollTrigger.create({
         trigger: sectionRef.current!,
         start: "top top+=88px",

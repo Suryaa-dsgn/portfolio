@@ -64,12 +64,19 @@ export function Hero() {
             SURYAA
           </motion.h1>
 
-          {/* Orange 4-point star — right of name on desktop */}
+          {/* Orange 4-point star — right of name */}
           <motion.div
             variants={fadeIn}
-            className="absolute -right-14 top-4 hidden md:block"
+            className="absolute -right-9 top-2 md:-right-14 md:top-4"
           >
-            <OrangeStar size={52} />
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+              style={{ display: "block" }}
+            >
+              <span className="block md:hidden"><OrangeStar size={30} /></span>
+              <span className="hidden md:block"><OrangeStar size={52} /></span>
+            </motion.span>
           </motion.div>
         </div>
 

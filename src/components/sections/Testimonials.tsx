@@ -66,7 +66,7 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="w-full bg-bg py-32 border-t border-border overflow-hidden"
+      className="w-full bg-bg py-16 md:py-32 border-t border-border overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 mt-3 mb-12">
         <SectionLabel>KIND WORDS</SectionLabel>

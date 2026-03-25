@@ -80,7 +80,7 @@ export function Projects() {
       </div>
 
       {/* Spacer so last card can unpin cleanly */}
-      <div className="h-screen" aria-hidden="true" />
+      <div className="h-[30vh]" aria-hidden="true" />
     </section>
   )
 }
