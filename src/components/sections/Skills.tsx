@@ -67,7 +67,7 @@ export function Skills() {
     <section
       ref={sectionRef}
       id="skills"
-      className="w-full bg-bg pt-32 pb-48 px-6 border-t border-border mt-8"
+      className="w-full bg-bg pt-16 md:pt-32 pb-24 md:pb-48 px-6 border-t border-border mt-8"
     >
       <div className="w-full text-center mb-16">
         <SectionLabel>CAPABILITIES</SectionLabel>

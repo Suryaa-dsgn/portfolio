@@ -92,6 +92,40 @@ body > * {
   outline-offset: 2px;
 }
 
+/* Footer CTA — dual vertical scroll columns */
+@keyframes scroll-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes scroll-down {
+  0%   { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+.scroll-col-up,
+.scroll-col-down {
+  width: 180px; /* mobile */
+}
+.scroll-col-up   { animation: scroll-up   28s linear infinite; }
+.scroll-col-down { animation: scroll-down 28s linear infinite; }
+
+@media (min-width: 768px) {
+  .scroll-col-up,
+  .scroll-col-down {
+    width: calc(50% - 40px); /* desktop: fills section with ~40px padding per side */
+  }
+}
+
+/* Responsive text-stroke — thinner on mobile, full weight on desktop */
+.text-stroke-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+}
+@media (min-width: 768px) {
+  .text-stroke-outline {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.85);
+  }
+}
+
 /* Reduced motion — override all animations */
 @media (prefers-reduced-motion: reduce) {
   *,

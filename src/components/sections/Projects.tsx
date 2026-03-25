@@ -50,14 +50,14 @@ export function Projects() {
     <section
       ref={sectionRef}
       id="work"
-      className="w-full bg-bg border-t border-border mt-32"
+      className="w-full bg-bg border-t border-border mt-16 md:mt-32"
     >
       {/* Section header */}
-      <div className="px-6 pt-24 pb-20">
+      <div className="px-6 pt-12 md:pt-24 pb-10 md:pb-20">
         {/* Chapter meta */}
         <div className="flex items-center justify-center gap-6 mb-12">
-          <SectionLabel>SELECTED WORK</SectionLabel>
-          <span className="font-mono text-xs text-text-muted">2022 – 2025</span>
+          <span className="font-mono text-xs text-text-muted tracking-[0.25em] uppercase">/ SELECTED WORK</span>
+          <span className="font-mono text-xs text-text-muted">2023 – 2026</span>
         </div>
 
         {/* Editorial heading */}
@@ -66,12 +66,7 @@ export function Projects() {
           style={{ fontSize: "clamp(48px, 10vw, 160px)" }}
         >
           <span className="text-white">SELECTED </span>
-          <span
-            style={{
-              color: "transparent",
-              WebkitTextStroke: "2px rgba(255,255,255,0.85)",
-            }}
-          >
+          <span className="text-stroke-outline">
             WORK
           </span>
         </h2>

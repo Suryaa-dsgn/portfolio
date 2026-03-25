@@ -4,6 +4,7 @@ import { MarqueeBand } from "@/components/sections/MarqueeBand"
 import { About } from "@/components/sections/About"
 import { Skills } from "@/components/sections/Skills"
 import { Projects } from "@/components/sections/Projects"
+import { GraphicGallery } from "@/components/sections/GraphicGallery"
 import { Experience } from "@/components/sections/Experience"
 import { Tools } from "@/components/sections/Tools"
 import { Testimonials } from "@/components/sections/Testimonials"
@@ -22,6 +23,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <GraphicGallery />
       <Experience />
       <Tools />
       <Testimonials />

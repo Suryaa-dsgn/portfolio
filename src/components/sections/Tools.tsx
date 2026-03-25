@@ -220,7 +220,7 @@ export function Tools() {
   return (
     <section
       id="tools"
-      className="w-full bg-bg py-32 px-6 border-t border-border"
+      className="w-full bg-bg py-16 md:py-32 px-6 border-t border-border"
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}
@@ -231,12 +231,7 @@ export function Tools() {
             style={{ fontSize: "clamp(40px, 8vw, 96px)" }}
           >
             <span className="text-white">WHAT I </span>
-            <span
-              style={{
-                color: "transparent",
-                WebkitTextStroke: "2px rgba(255,255,255,0.85)",
-              }}
-            >
+            <span className="text-stroke-outline">
               BUILD WITH
             </span>
           </h2>

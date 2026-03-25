@@ -51,7 +51,7 @@ export function Experience() {
       id="experience"
       className="w-full bg-bg border-t border-border"
     >
-      <div className="max-w-7xl mx-auto px-6 flex gap-16 py-32">
+      <div className="max-w-7xl mx-auto px-6 flex gap-16 py-16 md:py-32">
 
         {/* ── LEFT — Sticky vertical label ── */}
         <div
@@ -80,7 +80,7 @@ export function Experience() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="pb-24 mb-24 border-b border-border last:border-0 last:mb-0 last:pb-0"
+              className="pb-12 mb-12 md:pb-24 md:mb-24 border-b border-border last:border-0 last:mb-0 last:pb-0"
             >
               {/* Company header */}
               <motion.div

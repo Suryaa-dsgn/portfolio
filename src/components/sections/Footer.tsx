@@ -1,5 +1,6 @@
 "use client"
 import { useRef, useState, useCallback, useEffect } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { OrangeStar } from "@/components/ui/OrangeStar"
 import { staggerContainer, scaleIn, fadeUp } from "@/lib/motion"
@@ -398,6 +399,34 @@ function ContactModal({ onClose }: { onClose: () => void }) {
   )
 }
 
+/* ══════════════════════════════════════════════════════════
+   SCREEN SLOT
+══════════════════════════════════════════════════════════ */
+function ScreenSlot({ src }: { src: string }) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: "16 / 10",
+        marginBottom: 12,
+        borderRadius: 8,
+        overflow: "hidden",
+        flexShrink: 0,
+      }}
+    >
+      <Image
+        src={src}
+        alt=""
+        fill
+        style={{ objectFit: "cover" }}
+        sizes="(max-width: 768px) 180px, calc(50vw - 80px)"
+        loading="lazy"
+      />
+    </div>
+  )
+}
+
 /* shared input / textarea style */
 const inputStyle: React.CSSProperties = {
   background: "#0f0f0f",
@@ -498,39 +527,78 @@ export function Footer() {
     <>
       <footer
         id="contact"
-        className="w-full bg-bg border-t border-border py-32 px-6"
+        className="w-full bg-bg border-t border-border px-6"
       >
         {/* ── CTA Block ── */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="flex flex-col items-center text-center max-w-4xl mx-auto mb-32"
-        >
-          <motion.div variants={scaleIn} className="mb-8">
-            <OrangeStar size={44} />
-          </motion.div>
+        <div className="relative overflow-hidden mb-32">
 
-          <motion.h2
-            variants={fadeUp}
-            className="font-display text-white leading-[0.9] mb-12"
-            style={{ fontSize: "clamp(48px, 10vw, 120px)" }}
+          {/* ── Dual vertical scroll columns (background) ── */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              gap: 20,
+              maskImage: "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)",
+              overflow: "hidden",
+              opacity: 0.13,
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
           >
-            LOOKING FOR A
-            <br />
-            PRODUCT DESIGNER?
-          </motion.h2>
+            {/* Column A — scrolls UP — footer_1 to footer_5 */}
+            <div className="scroll-col-up" style={{ flexShrink: 0 }}>
+              {[...Array(2)].flatMap((_, pass) =>
+                [1, 2, 3, 4, 5].map(n => <ScreenSlot key={`a-${pass}-${n}`} src={`/footer_${n}.png`} />)
+              )}
+            </div>
 
-          <GetInTouchButton onOpen={() => setModalOpen(true)} />
-        </motion.div>
+            {/* Column B — scrolls DOWN — footer_6 to footer_10 */}
+            <div className="scroll-col-down" style={{ flexShrink: 0 }}>
+              {[...Array(2)].flatMap((_, pass) =>
+                [1, 2, 3, 4, 5].map(n => <ScreenSlot key={`b-${pass}-${n}`} src={`/footer_${n + 5}.png`} />)
+              )}
+            </div>
+          </div>
+
+          {/* ── Foreground: star, headline, CTA (z-10) ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto py-32"
+          >
+            <motion.div variants={scaleIn} className="mb-8">
+              <OrangeStar size={44} />
+            </motion.div>
+
+            <motion.h2
+              variants={fadeUp}
+              className="font-display text-white leading-[0.9] mb-12"
+              style={{ fontSize: "clamp(48px, 10vw, 120px)" }}
+            >
+              LOOKING FOR A
+              <br />
+              PRODUCT DESIGNER?
+            </motion.h2>
+
+            <GetInTouchButton onOpen={() => setModalOpen(true)} />
+          </motion.div>
+        </div>
 
         {/* ── Bottom row ── */}
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto border-t border-border pt-8 gap-4">
-          <p className="font-mono text-[10px] text-text-muted tracking-wider uppercase">
+        <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto border-t border-border pt-8 pb-10 gap-4">
+          {/* Left — copyright */}
+          <p className="font-mono text-[10px] text-text-muted tracking-wider uppercase md:flex-1">
             © 2026 Suryakanta Jena. Built with Next.js
           </p>
 
+          {/* Centre — links, truly centred */}
           <div className="flex items-center gap-6">
             <a
               href="https://www.linkedin.com/in/suryakanta-jena-191155264/"
@@ -561,13 +629,16 @@ export function Footer() {
             </a>
           </div>
 
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-mono text-[10px] text-text-muted tracking-widest uppercase hover:text-accent transition-colors duration-200 cursor-pointer"
-            aria-label="Back to top"
-          >
-            ↑ BACK TO TOP
-          </button>
+          {/* Right — back to top */}
+          <div className="md:flex-1 md:flex md:justify-end">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="font-mono text-[10px] text-text-muted tracking-widest uppercase hover:text-accent transition-colors duration-200 cursor-pointer"
+              aria-label="Back to top"
+            >
+              ↑ BACK TO TOP
+            </button>
+          </div>
         </div>
       </footer>
 
