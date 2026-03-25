@@ -530,7 +530,7 @@ export function Footer() {
         className="w-full bg-bg border-t border-border px-6"
       >
         {/* ── CTA Block ── */}
-        <div className="relative overflow-hidden mb-32">
+        <div className="relative overflow-hidden mb-8 md:mb-16">
 
           {/* ── Dual vertical scroll columns (background) ── */}
           <div
@@ -570,7 +570,7 @@ export function Footer() {
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto py-16 md:py-32"
           >
             <motion.div variants={scaleIn} className="mb-8">
